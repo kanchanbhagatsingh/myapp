@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        app:srcCompat="@drawable/vhlogo" />
+
+    <LinearLayout
+        android:layout_toEndOf="@id/ivLogo"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@id/layoutCashback"
+        android:id="@+id/layoutDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:gravity="start"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Van Heusen" />
+
+        <TextView
+            android:id="@+id/tvDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clothing Fashion Store" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutCashback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+       >
+
+        <TextView
+            android:id="@+id/cashback"
+            android:layout_width="20dp"
+            android:layout_height="17dp"
+            android:text="5 % " />
+
+        <TextView
+            android:id="@+id/cash"
+            android:layout_width="70dp"
+            android:layout_height="17dp"
+            android:text="back in ₹" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
