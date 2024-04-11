@@ -1,312 +1,342 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="390dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="Buy / Card Link"
-        android:textAlignment="textStart"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/autoImageSlider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <com.codebyashish.autoimageslider.AutoImageSlider
-        android:id="@+id/autoImageSlider"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_margin="10dp"
-        app:ais_auto_sliding="true"
-        app:ais_corner_radius="10"
-        app:ais_dots_visible="false"
-        app:ais_indicator_align="@string/center"
-        app:ais_placeholder="@drawable/placeholder_default_loading"
-        app:ais_slide_delay="2000"
-        app:ais_time_interval="1000"
-        app:ais_title_background="@drawable/text_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12"
-        app:layout_goneMarginTop="0dp" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/autoImageSlider"
-        app:layout_constraintVertical_bias="0.293">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="178dp"
-        android:layout_height="116dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/autoImageSlider"
-        app:layout_constraintVertical_bias="0.055"
-        app:srcCompat="@drawable/ssblack" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="178dp"
-        android:layout_height="116dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/autoImageSlider"
-        app:layout_constraintVertical_bias="0.055"
-        app:srcCompat="@drawable/ssblue" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="Appy Now"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.197" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="16dp"
-        android:text="Appy Now "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/button1"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.214" />
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Buy / Card Link"
+            android:textAlignment="textStart"
+            android:textSize="20sp" />
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <ScrollView
+        android:nestedScrollingEnabled="false"
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/vanheusen"
-                android:layout_width="65dp"
-                android:layout_height="76dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
+            <com.codebyashish.autoimageslider.AutoImageSlider
+                android:id="@+id/autoImageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                app:ais_auto_sliding="true"
+                app:ais_corner_radius="25"
+                app:ais_dots_visible="false"
+                app:ais_indicator_align="@string/center"
+                app:ais_placeholder="@drawable/placeholder_default_loading"
+                app:ais_slide_delay="2000"
+                app:ais_time_interval="4000"
+                app:ais_title_background="@drawable/text_background"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/vhlogo" />
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/vanhesens"
-                android:layout_width="223dp"
-                android:layout_height="30dp"
-                android:text="Van Heusen"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <LinearLayout
+                android:id="@+id/layoutImages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:weightSum="2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.075"
-                app:layout_constraintStart_toEndOf="@+id/vanheusen"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.048" />
-
-            <TextView
-                android:id="@+id/venheusenss"
-                android:layout_width="223dp"
-                android:layout_height="30dp"
-                android:text="Clothing Fashion Store"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.074"
-                app:layout_constraintStart_toEndOf="@+id/vanheusen"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.169" />
-
-            <TextView
-                android:id="@+id/cashback"
-                android:layout_width="20dp"
-                android:layout_height="17dp"
-                android:text="5 % "
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.925"
-                app:layout_constraintStart_toEndOf="@+id/vanhesens"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.038" />
-
-            <TextView
-                android:id="@+id/cash"
-                android:layout_width="70dp"
-                android:layout_height="17dp"
-                android:text="back in ₹"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.927"
-                app:layout_constraintStart_toEndOf="@+id/venheusenss"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.171" />
-
-            <ImageView
-                android:id="@+id/wowmomos"
-                android:layout_width="65dp"
-                android:layout_height="76dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vanheusen"
-                app:layout_constraintVertical_bias="0.081"
-                app:srcCompat="@drawable/veromoda" />
+                app:layout_constraintTop_toBottomOf="@id/autoImageSlider">
 
-            <TextView
-                android:id="@+id/wowcash"
-                android:layout_width="223dp"
-                android:layout_height="35dp"
-                android:text="Vero Moda"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    >
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_weight="1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ssblack" />
+
+                    <Button
+                        android:id="@+id/button1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:text="Appy Now"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imageView3" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    >
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_weight="1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ssblue" />
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:text="Appy Now "
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imageView2" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.074"
-                app:layout_constraintStart_toEndOf="@+id/wowmomos"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.346" />
-
-            <TextView
-                android:id="@+id/wowcashback"
-                android:layout_width="223dp"
-                android:layout_height="30dp"
-                android:text="Clothing Fashion Store"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.074"
-                app:layout_constraintStart_toEndOf="@+id/wowmomos"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.475" />
-
-            <TextView
-                android:id="@+id/wowtext"
-                android:layout_width="20dp"
-                android:layout_height="17dp"
-                android:text="5%"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.897"
-                app:layout_constraintStart_toEndOf="@+id/wowcash"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.328" />
-
-            <TextView
-                android:id="@+id/wowT"
-                android:layout_width="70dp"
-                android:layout_height="17dp"
-                android:text="back in ₹"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.897"
-                app:layout_constraintStart_toEndOf="@+id/wowcashback"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.426" />
-
-            <ImageView
-                android:id="@+id/vlcc"
-                android:layout_width="65dp"
-                android:layout_height="76dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vanheusen"
-                app:layout_constraintVertical_bias="0.612"
-                app:srcCompat="@drawable/veromoda" />
+                app:layout_constraintTop_toBottomOf="@+id/layoutImages">
 
-            <TextView
-                android:id="@+id/vlcctext"
-                android:layout_width="223dp"
-                android:layout_height="35dp"
-                android:text="Vlcc"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.074"
-                app:layout_constraintStart_toEndOf="@+id/wowmomos"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.653" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/item_recyclerview"
 
-            <TextView
-                android:id="@+id/vlccT"
-                android:layout_width="223dp"
-                android:layout_height="35dp"
-                android:text="Health Glow"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.074"
-                app:layout_constraintStart_toEndOf="@+id/wowmomos"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.795" />
+                    />
 
-            <TextView
-                android:id="@+id/vlccTe"
-                android:layout_width="20dp"
-                android:layout_height="17dp"
-                android:text="5%"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.934"
-                app:layout_constraintStart_toEndOf="@+id/wowmomos"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.653" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
 
-            <TextView
-                android:id="@+id/vlccTex"
-                android:layout_width="70dp"
-                android:layout_height="17dp"
-                android:text="back in ₹"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.943"
-                app:layout_constraintStart_toEndOf="@+id/wowmomos"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.755" />
+                    <ImageView
+                        android:id="@+id/vanheusen"
+                        android:layout_width="65dp"
+                        android:layout_height="76dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/vhlogo" />
 
+                    <TextView
+                        android:id="@+id/vanhesens"
+                        android:layout_width="223dp"
+                        android:layout_height="30dp"
+                        android:text="Van Heusen"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.075"
+                        app:layout_constraintStart_toEndOf="@+id/vanheusen"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.048" />
+
+                    <TextView
+                        android:id="@+id/venheusenss"
+                        android:layout_width="223dp"
+                        android:layout_height="30dp"
+                        android:text="Clothing Fashion Store"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.074"
+                        app:layout_constraintStart_toEndOf="@+id/vanheusen"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.169" />
+
+                    <TextView
+                        android:id="@+id/cashback"
+                        android:layout_width="20dp"
+                        android:layout_height="17dp"
+                        android:text="5 % "
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.925"
+                        app:layout_constraintStart_toEndOf="@+id/vanhesens"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.038" />
+
+                    <TextView
+                        android:id="@+id/cash"
+                        android:layout_width="70dp"
+                        android:layout_height="17dp"
+                        android:text="back in ₹"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.927"
+                        app:layout_constraintStart_toEndOf="@+id/venheusenss"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.171" />
+
+                    <ImageView
+                        android:id="@+id/wowmomos"
+                        android:layout_width="65dp"
+                        android:layout_height="76dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/vanheusen"
+                        app:layout_constraintVertical_bias="0.081"
+                        app:srcCompat="@drawable/veromoda" />
+
+                    <TextView
+                        android:id="@+id/wowcash"
+                        android:layout_width="223dp"
+                        android:layout_height="35dp"
+                        android:text="Vero Moda"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.074"
+                        app:layout_constraintStart_toEndOf="@+id/wowmomos"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.346" />
+
+                    <TextView
+                        android:id="@+id/wowcashback"
+                        android:layout_width="223dp"
+                        android:layout_height="30dp"
+                        android:text="Clothing Fashion Store"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.074"
+                        app:layout_constraintStart_toEndOf="@+id/wowmomos"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.475" />
+
+                    <TextView
+                        android:id="@+id/wowtext"
+                        android:layout_width="20dp"
+                        android:layout_height="17dp"
+                        android:text="5%"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.897"
+                        app:layout_constraintStart_toEndOf="@+id/wowcash"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.328" />
+
+                    <TextView
+                        android:id="@+id/wowT"
+                        android:layout_width="70dp"
+                        android:layout_height="17dp"
+                        android:text="back in ₹"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.897"
+                        app:layout_constraintStart_toEndOf="@+id/wowcashback"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.426" />
+
+                    <ImageView
+                        android:id="@+id/vlcc"
+                        android:layout_width="65dp"
+                        android:layout_height="76dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/vanheusen"
+                        app:layout_constraintVertical_bias="0.612"
+                        app:srcCompat="@drawable/veromoda" />
+
+                    <TextView
+                        android:id="@+id/vlcctext"
+                        android:layout_width="223dp"
+                        android:layout_height="35dp"
+                        android:text="Vlcc"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.074"
+                        app:layout_constraintStart_toEndOf="@+id/wowmomos"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.653" />
+
+                    <TextView
+                        android:id="@+id/vlccT"
+                        android:layout_width="223dp"
+                        android:layout_height="35dp"
+                        android:text="Health Glow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.074"
+                        app:layout_constraintStart_toEndOf="@+id/wowmomos"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.795" />
+
+                    <TextView
+                        android:id="@+id/vlccTe"
+                        android:layout_width="20dp"
+                        android:layout_height="17dp"
+                        android:text="5%"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.934"
+                        app:layout_constraintStart_toEndOf="@+id/wowmomos"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.653" />
+
+                    <TextView
+                        android:id="@+id/vlccTex"
+                        android:layout_width="70dp"
+                        android:layout_height="17dp"
+                        android:text="back in ₹"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.943"
+                        app:layout_constraintStart_toEndOf="@+id/wowmomos"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.755" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
 
+    </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

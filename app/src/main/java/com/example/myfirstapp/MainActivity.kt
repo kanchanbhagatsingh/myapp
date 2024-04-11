@@ -3,13 +3,11 @@ package com.example.myfirstapp
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.codebyashish.autoimageslider.AutoImageSlider
 import com.codebyashish.autoimageslider.Enums.ImageActionTypes
 import com.codebyashish.autoimageslider.Enums.ImageAnimationTypes
@@ -17,20 +15,22 @@ import com.codebyashish.autoimageslider.Enums.ImageScaleType
 import com.codebyashish.autoimageslider.ExceptionsClass
 import com.codebyashish.autoimageslider.Interfaces.ItemsListener
 import com.codebyashish.autoimageslider.Models.ImageSlidesModel
-import com.example.myfirstapp.R.drawable.wow
 
 class MainActivity : AppCompatActivity(), ItemsListener {
 
     var autoImageList = ArrayList<ImageSlidesModel>()
     private lateinit var autoImageSlider: AutoImageSlider
+    private var arrayList : ArrayList<RecyclerModel> = ArrayList()// array list by extending the RecyclerModel class
+
+    private lateinit var recyclerView: RecyclerView // create variable for recyclerview
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         autoImageSlider = findViewById(R.id.autoImageSlider)
+        recyclerView = findViewById(R.id.recyclerView)  // initialize recyclerview
         try {
             autoImageList.add(
                 ImageSlidesModel(
@@ -66,8 +66,43 @@ class MainActivity : AppCompatActivity(), ItemsListener {
         button2.setOnClickListener {
             openLink("https://www.google.com")
         }
+
+        saveData()
     }
 
+    private fun saveData(){
+
+        // add some static data into the arrayList by using model class
+
+        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vlcc", "Vlcc description", "5%"))
+        arrayList.add(RecyclerModel(R.drawable.vhlogo, "Ven Husen", "Van Husssen desc", "10%"))
+        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vero Muda", "Vero muda desc", "12%"))
+
+        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vlcc", "Vlcc description", "5%"))
+        arrayList.add(RecyclerModel(R.drawable.vhlogo, "Ven Husen", "Van Husssen desc", "10%"))
+        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vero Muda", "Vero muda desc", "12%"))
+
+        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vlcc", "Vlcc description", "5%"))
+        arrayList.add(RecyclerModel(R.drawable.vhlogo, "Ven Husen", "Van Husssen desc", "10%"))
+        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vero Muda", "Vero muda desc", "12%"))
+
+        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vlcc", "Vlcc description", "5%"))
+        arrayList.add(RecyclerModel(R.drawable.vhlogo, "Ven Husen", "Van Husssen desc", "10%"))
+        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vero Muda", "Vero muda desc", "12%"))
+
+        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vlcc", "Vlcc description", "5%"))
+        arrayList.add(RecyclerModel(R.drawable.vhlogo, "Ven Husen", "Van Husssen desc", "10%"))
+        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vero Muda", "Vero muda desc", "12%"))
+
+
+        val adapter = ItemsAdapter(applicationContext, arrayList)
+        val layoutManager : LayoutManager = LinearLayoutManager(applicationContext)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = adapter
+
+
+
+    }
     private fun openLink(url: String) {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
