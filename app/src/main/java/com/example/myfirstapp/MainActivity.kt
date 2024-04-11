@@ -3,6 +3,7 @@ package com.example.myfirstapp
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +16,7 @@ import com.codebyashish.autoimageslider.Enums.ImageScaleType
 import com.codebyashish.autoimageslider.ExceptionsClass
 import com.codebyashish.autoimageslider.Interfaces.ItemsListener
 import com.codebyashish.autoimageslider.Models.ImageSlidesModel
+import java.util.Collections
 
 class MainActivity : AppCompatActivity(), ItemsListener {
 
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity(), ItemsListener {
 
     private lateinit var recyclerView: RecyclerView // create variable for recyclerview
 
+    private lateinit var adapter : ItemsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +70,15 @@ class MainActivity : AppCompatActivity(), ItemsListener {
             openLink("https://www.google.com")
         }
 
+        // perform this reverse on any button click
+
+        /*button2.setOnLongClickListener {
+            arrayList.reverse()
+            adapter.notifyDataSetChanged()
+            true
+        }*/
+
+
         saveData()
     }
 
@@ -74,28 +86,23 @@ class MainActivity : AppCompatActivity(), ItemsListener {
 
         // add some static data into the arrayList by using model class
 
-        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vlcc", "Vlcc description", "5%"))
-        arrayList.add(RecyclerModel(R.drawable.vhlogo, "Ven Husen", "Van Husssen desc", "10%"))
-        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vero Muda", "Vero muda desc", "12%"))
-
-        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vlcc", "Vlcc description", "5%"))
-        arrayList.add(RecyclerModel(R.drawable.vhlogo, "Ven Husen", "Van Husssen desc", "10%"))
-        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vero Muda", "Vero muda desc", "12%"))
-
-        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vlcc", "Vlcc description", "5%"))
-        arrayList.add(RecyclerModel(R.drawable.vhlogo, "Ven Husen", "Van Husssen desc", "10%"))
-        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vero Muda", "Vero muda desc", "12%"))
-
-        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vlcc", "Vlcc description", "5%"))
-        arrayList.add(RecyclerModel(R.drawable.vhlogo, "Ven Husen", "Van Husssen desc", "10%"))
-        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vero Muda", "Vero muda desc", "12%"))
-
-        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vlcc", "Vlcc description", "5%"))
-        arrayList.add(RecyclerModel(R.drawable.vhlogo, "Ven Husen", "Van Husssen desc", "10%"))
-        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vero Muda", "Vero muda desc", "12%"))
+        arrayList.add(RecyclerModel(R.drawable.vhlogo, "Van Heusen", "Clothing & fashion", "5%", "Instore"))
+        arrayList.add(RecyclerModel(R.drawable.veromoda, "Vero Moda", "Clothing & fashion", "5%", "Online"))
+        arrayList.add(RecyclerModel(R.drawable.vlcc, "VLCC", "Health & Beauty", "5%", "Instore"))
+        arrayList.add(RecyclerModel(R.drawable.vhlogo, "Van Heusen", "Clothing & fashion", "5%", "Online"))
+        arrayList.add(RecyclerModel(R.drawable.vhlogo, "Van Heusen", "Clothing & fashion", "5%", "Instore"))
+        arrayList.add(RecyclerModel(R.drawable.sotc, "SOTC", "Travel & Hoter", "5%", "Online"))
+        arrayList.add(RecyclerModel(R.drawable.peter_eng, "Peter England", "Clothing & fashion", "5%", "Instore"))
+        arrayList.add(RecyclerModel(R.drawable.rey_ban, "Rey Ban", "Accessories & Watches", "5%", "Online"))
+        arrayList.add(RecyclerModel(R.drawable.peter_eng, "Peter England", "Clothing & fashion", "5%", "Instore"))
+        arrayList.add(RecyclerModel(R.drawable.peter_eng, "Planet Fashion", "Clothing & fashion", "5%", "Online"))
+        arrayList.add(RecyclerModel(R.drawable.planet_fashion, "Peter England", "Clothing & fashion", "5%", "Instore"))
 
 
-        val adapter = ItemsAdapter(applicationContext, arrayList)
+        arrayList.reverse() // to reverse order just call this function
+
+
+        adapter = ItemsAdapter(applicationContext, arrayList)
         val layoutManager : LayoutManager = LinearLayoutManager(applicationContext)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter

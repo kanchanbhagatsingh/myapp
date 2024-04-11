@@ -26,12 +26,14 @@ class ItemsAdapter(applicationContext: Context, arrayList: ArrayList<RecyclerMod
         var title : TextView
         var desc : TextView
         var price : TextView
+        var type : TextView
 
         init {
             logo = itemView.findViewById(R.id.ivLogo)
             title = itemView.findViewById(R.id.tvTitle)
             desc = itemView.findViewById(R.id.tvDesc)
             price = itemView.findViewById(R.id.cashback)
+            type = itemView.findViewById(R.id.tvStoreType)
         }
 
 
@@ -56,6 +58,7 @@ class ItemsAdapter(applicationContext: Context, arrayList: ArrayList<RecyclerMod
         holder.desc.text = recyclerModel.desc
 
         holder.price.text = recyclerModel.cashback
+        holder.type.text = recyclerModel.type
 
 
     }
