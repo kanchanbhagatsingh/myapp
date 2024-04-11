@@ -3,7 +3,8 @@ package com.example.myfirstapp
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.View
+import android.os.Handler
+import android.os.Looper
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,7 +17,6 @@ import com.codebyashish.autoimageslider.Enums.ImageScaleType
 import com.codebyashish.autoimageslider.ExceptionsClass
 import com.codebyashish.autoimageslider.Interfaces.ItemsListener
 import com.codebyashish.autoimageslider.Models.ImageSlidesModel
-import java.util.Collections
 
 class MainActivity : AppCompatActivity(), ItemsListener {
 
@@ -99,13 +99,21 @@ class MainActivity : AppCompatActivity(), ItemsListener {
         arrayList.add(RecyclerModel(R.drawable.planet_fashion, "Peter England", "Clothing & fashion", "5%", "Instore"))
 
 
-        arrayList.reverse() // to reverse order just call this function
+//        arrayList.reverse() // to reverse order just call this function
 
 
         adapter = ItemsAdapter(applicationContext, arrayList)
         val layoutManager : LayoutManager = LinearLayoutManager(applicationContext)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
+
+
+        // call a looper after adjusting data into recyclerview
+        val handler = Handler(Looper.getMainLooper())
+        handler.postDelayed({
+            arrayList.reverse() // call the reverse here
+            adapter.notifyDataSetChanged() // notify the adapter that you have made some changes in arrayList, adapter will re-update the UI
+        }, 4000)
 
 
 
