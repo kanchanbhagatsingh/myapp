@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.postDelayed
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
@@ -17,6 +18,7 @@ import com.codebyashish.autoimageslider.Enums.ImageScaleType
 import com.codebyashish.autoimageslider.ExceptionsClass
 import com.codebyashish.autoimageslider.Interfaces.ItemsListener
 import com.codebyashish.autoimageslider.Models.ImageSlidesModel
+import java.util.Collections
 
 class MainActivity : AppCompatActivity(), ItemsListener {
 
@@ -27,10 +29,14 @@ class MainActivity : AppCompatActivity(), ItemsListener {
     private lateinit var recyclerView: RecyclerView // create variable for recyclerview
 
     private lateinit var adapter : ItemsAdapter
+    private lateinit var handler: Handler
+    private val shuffleInterval: Long = 4000 // 4000 ms  =  4 sec
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        handler = Handler(Looper.getMainLooper())
 
         autoImageSlider = findViewById(R.id.autoImageSlider)
         recyclerView = findViewById(R.id.recyclerView)  // initialize recyclerview
@@ -100,6 +106,7 @@ class MainActivity : AppCompatActivity(), ItemsListener {
 
 
 //        arrayList.reverse() // to reverse order just call this function
+//        arrayList.shuffle() // to shuffle list just call this function
 
 
         adapter = ItemsAdapter(applicationContext, arrayList)
@@ -108,13 +115,29 @@ class MainActivity : AppCompatActivity(), ItemsListener {
         recyclerView.adapter = adapter
 
 
-        // call a looper after adjusting data into recyclerview
+        /*// call a looper after adjusting data into recyclerview
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed({
             arrayList.reverse() // call the reverse here
             adapter.notifyDataSetChanged() // notify the adapter that you have made some changes in arrayList, adapter will re-update the UI
-        }, 4000)
+        }, 4000)*/
 
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                val oldList = ArrayList(arrayList)
+                arrayList.shuffle()
+
+                // Notify adapter of item movements to trigger animations
+                for (i in arrayList.indices) {
+                    val oldIndex = oldList.indexOf(arrayList[i])
+                    if (oldIndex != -1 && oldIndex != i) {
+                        adapter.notifyItemMoved(oldIndex, i)
+                    }
+                }
+
+                handler.postDelayed(this, shuffleInterval)
+            }
+        }, shuffleInterval)
 
 
     }
@@ -137,6 +160,12 @@ class MainActivity : AppCompatActivity(), ItemsListener {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(model.clickUrl))
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
+    }
+
+    override fun onDestroy() {
+        // Remove any pending callbacks to avoid memory leaks
+        handler.removeCallbacksAndMessages(null)
+        super.onDestroy()
     }
 
 }
