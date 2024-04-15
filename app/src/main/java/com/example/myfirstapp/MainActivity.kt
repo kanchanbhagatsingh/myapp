@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(), ItemsListener {
             )
 
             autoImageSlider.setImageList(autoImageList, ImageScaleType.FIT)
-            autoImageSlider.setSlideAnimation(ImageAnimationTypes.FOREGROUND_TO_BACKGROUND)
+            autoImageSlider.setSlideAnimation(ImageAnimationTypes.ZOOM_IN)
         } catch (e: ExceptionsClass) {
             e.printStackTrace()
         }
