@@ -15,11 +15,14 @@
         android:theme="@style/Theme.MyFirstApp"
         tools:targetApi="31">
         <activity
-            android:name=".veromoda"
-            android:exported="false" />
-        <activity
-            android:name=".veromode"
-            android:exported="false" />
+            android:name=".BrandDetailsActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".slider"
             android:exported="false" />
