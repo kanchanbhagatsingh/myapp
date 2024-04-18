@@ -1,254 +1,327 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
+    tools:context=".BrandDetailsActivity">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".BrandDetailsActivity">
+    android:orientation="vertical">
 
-      <LinearLayout
-          android:orientation="vertical"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/BannerImg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-          <LinearLayout
-              android:id="@+id/layoutDetailsV"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_centerVertical="true"
-              android:layout_marginStart="10dp"
-              android:layout_marginTop="10dp"
-              android:layout_marginBottom="10dp"
-              android:gravity="start"
-              android:orientation="vertical">
+        <ImageView
+            android:id="@+id/bannerImage"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:scaleType="centerCrop"
+       app:srcCompat="@drawable/men" />
+    </LinearLayout>
 
-              <TextView
-                  android:id="@+id/veroModaT"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="Clothing &amp; Fashion"
-                  android:textSize="12sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
 
-              <TextView
-                  android:id="@+id/VeroModaD"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="VeroModa"
-                  android:textSize="20sp" />
+        <LinearLayout
+            android:id="@+id/layoutDetailsV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:orientation="vertical">
 
-              <LinearLayout
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:orientation="horizontal">
+            <TextView
+                android:id="@+id/veroModaT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clothing &amp; Fashion"
+                android:textColor="@color/gray"
+                android:textSize="12sp" />
 
-                  <ImageView
-                      android:id="@+id/inStoreV"
-                      android:layout_width="18dp"
-                      android:layout_height="18dp"
-                      android:layout_gravity="center_vertical"
-                      app:srcCompat="@drawable/baseline_storefront_24" />
+            <TextView
+                android:id="@+id/VeroModaD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VeroModa"
+                android:textSize="20sp" />
 
-                  <TextView
-                      android:id="@+id/StoreTV"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_gravity="center_vertical"
-                      android:text="Type"
-                      android:textSize="10sp" />
-              </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-          </LinearLayout>
+                <ImageView
+                    android:id="@+id/inStoreV"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/baseline_storefront_24" />
 
-          <androidx.cardview.widget.CardView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
-
-              <ImageView
-                  android:id="@+id/vmLogo"
-                  android:layout_width="50dp"
-                  android:layout_height="50dp"
-                  android:layout_gravity="end"
-                  android:layout_margin="10dp"
-                  app:srcCompat="@drawable/vhlogo" />
-          </androidx.cardview.widget.CardView>
-
-          <LinearLayout
-              android:id="@+id/linearCardV"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_centerVertical="true"
-              android:layout_marginStart="10dp"
-              android:layout_marginTop="10dp"
-              android:layout_marginBottom="10dp"
-              android:gravity="start"
-              android:orientation="vertical">
-
-              <androidx.cardview.widget.CardView
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_marginHorizontal="16dp"
-                  android:layout_marginTop="16dp"
-                  app:cardCornerRadius="12dp"
-                  app:cardElevation="4dp">
-
-                  <LinearLayout
-                      android:id="@+id/linearCardsVi"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_marginTop="10dp"
-                      android:layout_marginBottom="10dp"
-                      android:orientation="vertical">
-
-                      <TextView
-                          android:id="@+id/cardText"
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:text="Collect up to"
-                          android:textSize="10sp" />
-                  </LinearLayout>
-
-                  <LinearLayout
-                      android:id="@+id/linearPer"
-                      android:layout_width="18dp"
-                      android:layout_height="18dp"
-                      android:layout_gravity="center"
-                      android:orientation="horizontal">
-
-                      <ImageView
-                          android:id="@+id/imageView8"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginEnd="5dp"
-                          app:srcCompat="@drawable/vow" />
-
-                      <TextView
-                          android:id="@+id/cardCB"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="5 % " />
+                <TextView
+                    android:id="@+id/StoreTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Instore"
+                    android:textColor="@color/gray"
+                    android:textSize="10sp" />
+            </LinearLayout>
 
 
-                  </LinearLayout>
+        </LinearLayout>
 
-                  <TextView
-                      android:id="@+id/cbAllPurchase"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="₹ on all purchases" />
-
-                  <TextView
-                      android:id="@+id/firstV"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_marginTop="20dp"
-                      android:layout_marginBottom="10dp"
-                      android:text="First visit rate - 5%" />
-
-              </androidx.cardview.widget.CardView>
-          </LinearLayout>
-
-      </LinearLayout>
-
-      <View
-          android:id="@+id/horizontalline"
-          android:layout_width="match_parent"
-          android:layout_height="1dp"
-          android:layout_marginStart="30dp"
-          android:background="@color/underline" />
-
-      <ImageView
-          android:id="@+id/VgiftCard"
-          android:layout_width="18dp"
-          android:layout_height="18dp"
-          app:srcCompat="@drawable/gift_card" />
-
-      <LinearLayout
-          android:id="@+id/giftCard"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="10dp"
-          android:layout_marginBottom="10dp"
-          android:orientation="horizontal">
-
-          <TextView
-              android:id="@+id/giftCardT"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginTop="10dp"
-              android:text="Gift Card Offer"
-              android:textSize="12sp" />
-
-          <ImageView
-              android:id="@+id/Question"
-              android:layout_width="18dp"
-              android:layout_height="18dp"
-              android:layout_margin="10dp"
-              app:srcCompat="@drawable/vow" />
-
-      </LinearLayout>
-
-      <TextView
-          android:id="@+id/collect"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Collect ₹ by paying with a gift card" />
-
-      <FrameLayout
-          android:id="@+id/layoutButtonImg"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="20dp"
-          android:layout_marginEnd="20dp"
-          android:background="@color/blackBg">
+        <ImageView
+            android:id="@+id/vmLogo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:layout_marginRight="20dp"
+            app:srcCompat="@drawable/vhlogo" />
 
 
-          <LinearLayout
-              android:id="@+id/linearButtonImg"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="horizontal">
+    </LinearLayout>
 
-              <ImageButton
-                  android:id="@+id/ButtonTextImg"
-                  android:layout_width="56dp"
-                  android:layout_height="56dp"
-                  app:srcCompat="@drawable/vow"
-                  android:contentDescription="Pay"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="0dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp">
 
-              <TextView
-                  android:id="@+id/ButtonText"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="Pay"
-                  android:textSize="16sp" />
+        <LinearLayout
+            android:id="@+id/linearCardV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="start"
+            android:orientation="vertical">
 
-          </LinearLayout>
-      </FrameLayout>
+            <LinearLayout
+                android:id="@+id/linearCardsVi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="3dp"
+                android:orientation="vertical">
 
-      <View
-          android:id="@+id/horizontal"
-          android:layout_width="match_parent"
-          android:layout_height="1dp"
-          android:layout_marginStart="30dp"
-          android:background="@color/underline" />
+                <TextView
+                    android:id="@+id/cardText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingTop="0dp"
+                    android:text="Collect up to"
+                    android:textColor="@color/blackBg"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
-      <TextView
-          android:id="@+id/aboutUs"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="10dp"
-          android:layout_marginBottom="5dp"
-          android:text="About"
-          android:textSize="20sp" />
+            <LinearLayout
+                android:id="@+id/linearPer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="0dp">
 
-      <TextView
-          android:id="@+id/aboutC"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="It's time to shop all that you want. Great deals on everything at Van Heusen online store. Ready to have all eyes on you? Shop from our collection at Van Heusen online store. 30 Days Return. Exquisite Style."
-          android:textSize="16sp"/>
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="5dp"
+                    android:paddingTop="5dp"
+                    app:srcCompat="@drawable/vow" />
+
+                <TextView
+                    android:id="@+id/cardCB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="5% "
+                    android:textColor="@color/blackBg"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/cbAllPurchase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:text="₹ on all purchases"
+                android:textColor="@color/gray"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/firstV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="First visit rate - 5%"
+                android:textColor="@color/gray"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/horizontalline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/underline" />
+
+    <ImageView
+        android:id="@+id/VgiftCard"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:srcCompat="@drawable/gift_card" />
+
+    <LinearLayout
+        android:id="@+id/giftCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="7dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/giftCardT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="Gift Card Offer"
+            android:textColor="@color/blackBg"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/Question"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="2dp"
+            app:srcCompat="@drawable/vow" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/collect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="20dp"
+        android:text="Collect ₹ by paying with a gift card"
+        android:textColor="@color/gray"
+        android:textSize="18sp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/layoutButtonImg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/blackBg"
+        app:cardCornerRadius="100dp">
+
+
+        <LinearLayout
+            android:id="@+id/linearButtonImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+
+            <ImageButton
+                android:id="@+id/ButtonTextImg"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:contentDescription="Pay"
+                app:srcCompat="@drawable/vow" />
+
+            <TextView
+                android:id="@+id/ButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Pay"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/underline" />
+
+    <TextView
+        android:id="@+id/aboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="About"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/aboutC"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/gray"
+        android:text="It's time to shop all that you want. Great deals on everything at Van Heusen online store. Ready to have all eyes on you? Shop from our collection at Van Heusen online store. 30 Days Return. Exquisite Style."
+        android:textSize="14sp" />
 
 
 </LinearLayout>
+
+    </ScrollView>

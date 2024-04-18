@@ -5,4 +5,5 @@
     <color name="red">#FF0000</color>
     <color name="underline">#D8D6D6</color>
     <color name="blackBg">#000000</color>
+    <color name="gray">#a9a9a9</color>
 </resources>

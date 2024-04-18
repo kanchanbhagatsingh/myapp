@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity(), ItemsListener {
     private lateinit var autoImageSlider: AutoImageSlider
     private var arrayList : ArrayList<RecyclerModel> = ArrayList()// array list by extending the RecyclerModel class
 
+
     private lateinit var recyclerView: RecyclerView // create variable for recyclerview
 
     private lateinit var adapter : ItemsAdapter
