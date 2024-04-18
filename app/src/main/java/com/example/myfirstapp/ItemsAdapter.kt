@@ -1,6 +1,8 @@
 package com.example.myfirstapp
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -59,6 +61,12 @@ class ItemsAdapter(applicationContext: Context, arrayList: ArrayList<RecyclerMod
 
         holder.price.text = recyclerModel.cashback
         holder.type.text = recyclerModel.type
+
+        holder.itemView.setOnClickListener{
+            val intent = Intent(context, BrandDetailsActivity::class.java)
+            intent.putExtra("model", recyclerModel)
+            holder.title.context.  startActivity(intent)
+        }
 
 
     }

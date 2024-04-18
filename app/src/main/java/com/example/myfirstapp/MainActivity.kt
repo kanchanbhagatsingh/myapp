@@ -7,7 +7,6 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.postDelayed
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
@@ -18,13 +17,12 @@ import com.codebyashish.autoimageslider.Enums.ImageScaleType
 import com.codebyashish.autoimageslider.ExceptionsClass
 import com.codebyashish.autoimageslider.Interfaces.ItemsListener
 import com.codebyashish.autoimageslider.Models.ImageSlidesModel
-import java.util.Collections
 
 class MainActivity : AppCompatActivity(), ItemsListener {
 
     var autoImageList = ArrayList<ImageSlidesModel>()
     private lateinit var autoImageSlider: AutoImageSlider
-    private var arrayList : ArrayList<RecyclerModel> = ArrayList()// array list by extending the RecyclerModel class
+    private var arrayList : ArrayList<RecyclerModel> = ArrayList()// array list by extending the com.example.myfirstapp.RecyclerModel class
 
 
     private lateinit var recyclerView: RecyclerView // create variable for recyclerview

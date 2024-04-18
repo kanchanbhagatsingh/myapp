@@ -1,19 +1,43 @@
 package com.example.myfirstapp
 
-class RecyclerModel(logo: Int, title: String, desc: String, cashback: String, type : String) {
-    // create model class for storing & populate the data on recyclerview
-     var title : String = ""
-     var desc : String = ""
-     var logo : Int = 0
-     var cashback : String = ""
-    var type : String = ""
+import android.os.Parcel
+import android.os.Parcelable
 
-    init {
-        this.desc = desc
-        this.title = title
-        this.logo = logo
-        this.cashback = cashback
-        this.type = type
+class RecyclerModel(
+    var logo: Int,
+    var title: String,
+    var desc: String,
+    var cashback: String,
+    var type: String
+) : Parcelable {
+
+    constructor(parcel: Parcel) : this(
+        parcel.readInt(),
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
+        parcel.readString() ?: ""
+    )
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(logo)
+        parcel.writeString(title)
+        parcel.writeString(desc)
+        parcel.writeString(cashback)
+        parcel.writeString(type)
     }
 
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<RecyclerModel> {
+        override fun createFromParcel(parcel: Parcel): RecyclerModel {
+            return RecyclerModel(parcel)
+        }
+
+        override fun newArray(size: Int): Array<RecyclerModel?> {
+            return arrayOfNulls(size)
+        }
+    }
 }
